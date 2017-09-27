@@ -11,20 +11,24 @@ oder: Wie man mit Small Data arbeitet
 
 /Stefan Otte/
 
-TODO url
-https://goo.gl/8JgirR
+https://goo.gl/tPrBVN
 
-TODO barcode
 [[./img/qr.png]]
 * 
 :PROPERTIES: 
 :reveal_background: img/dr_strangelove.jpg
-:reveal_background_size: 70%
+:reveal_background_size: 50%
 :END:
+
+#+BEGIN_NOTES
+1. Filler: zu schnell
+2. Guter Film: urkomisch
+3. Titel Dr Strangelove inspiriert den 'spirituellen Titel' des Talks
+#+END_NOTES
 * Active Learning or: How I Learned to Stop Worrying and Love Small Data
 #+BEGIN_NOTES
-- spiritual title
 - show of hands
+- Message: Werbeveranstaltung fuer AL
 #+END_NOTES
 * 
 /Stefan Otte/
@@ -68,6 +72,7 @@ Dieser Talks ist auch komisch
 - Formel -> PhD, griechische Buchstaben
 - Beispiel fuer die Formel
 - Konkretes Fallbeispiel einer App
+- Big Data Engineers: Seitenhieb -> small data
 
 Ziel:
 - active learning
@@ -109,18 +114,23 @@ Besseres Interface
 :END:
 * 
 [[./img/cinder.png]]
+#+BEGIN_NOTES
+Fallbeispiel - koennte erzaehlen wir alles umgesetzt haben, lessons learned, etc.
+
+Aber, hier ist hier mehr.
+Theory -> AL
+#+END_NOTES
 * /"Nothing Is Quite So Practical as a Good Theory"/ 
 -- Kurt Lewin
 #+BEGIN_NOTES
-Fallbeispiel - koennte erzaehlen wir alles umgesetzt haben, lessons learned.
-
-Aber, hier ist hier mehr
-
 German-American Psychologist
 pioneers of social, organizational, and applied psychology
 Founder of social psychology
 #+END_NOTES
 * Active Learning
+#+BEGIN_NOTES
+Unterdefinierte Welt
+#+END_NOTES
 ** 
 /"The key idea behind *active learning* is that a machine learning algorithm can achieve *greater accuracy* with *fewer training labels* if it is allowed to *choose the data* from which it learns./
 ** 
@@ -143,13 +153,19 @@ Founder of social psychology
 :reveal_background_size: 50%
 :END:
 
+#+BEGIN_NOTES
+- Buch 
+- Survey als PDF
+
+~70 Seiten
+#+END_NOTES
 ** 
 :PROPERTIES: 
 :reveal_background: img/burr_settles.jpg
 :reveal_background_trans: slide
 :END:
 #+BEGIN_NOTES
-ML dep von CMU?
+ML department von CMU?
 G8 demo
 #+END_NOTES
 ** 
@@ -164,10 +180,23 @@ actively query for data
 *\rightarrow sequential decision making*
 
 #+BEGIN_NOTES
-the essence of active learning
+Der Kern von Active Learning - zwei Punkte
+
+Gute Daten, nicht big data
+
+Signal to Noise Verhaeltnis
+
+Andere Problemdefinition -> sequential decision making
 #+END_NOTES
 * ${\huge \textbf{X} \rightarrow} \begin{bmatrix} cat\\ dog\\ \vdots\\ cat \end{bmatrix}$
 * ${\huge \textbf{X} \rightarrow} \begin{bmatrix} ?\\ ?\\ \vdots\\ ? \end{bmatrix}$
+#+BEGIN_NOTES
+AL ist anders.
+
+- nicht unsupervised
+- semi-supervised Limbo
+- Aber: Moeglichkeit Fragen zu stellen
+#+END_NOTES
 * What is *Interesting*?
 * 
 :PROPERTIES: 
@@ -229,6 +258,9 @@ the essence of active learning
 :reveal_background_trans: slide
 :reveal_background_size: 50%
 :END:
+#+BEGIN_NOTES
+klaeglicher Versuch Varianz eines GP in Grafikprogramm zu zeichnen.
+#+END_NOTES
 * What is *Interesting*?
 #+ATTR_REVEAL: :frag appear
 - uncertainty
@@ -240,6 +272,12 @@ the essence of active learning
 - expected error reduction
 - expected variance reduction
 - ...
+#+BEGIN_NOTES
+- Unterschiedliche Methoden
+- Problem-spezifisch
+- Existierende Klassifikator weiterverwenden
+- Runtime Anforderungen - Oelbohrungen vs unsere App
+#+END_NOTES
 * 
 :PROPERTIES: 
 :reveal_background: img/tcr.png
@@ -251,13 +289,24 @@ the essence of active learning
 - learn properties of the world (movable and in what way)
 - expected information gain
 - robot created the data, not the human
+- Selbstlernende Systeme
 #+END_NOTES
 * Gamification of Search
+#+BEGIN_NOTES
+Das war der Theory-Teil
+
+Mit dem Wissen gucken wir uns das Problem noch mal an.
+#+END_NOTES
 * 
 :PROPERTIES: 
 :reveal_background: img/cars.png
 :reveal_background_size: 100%
 :END:
+#+BEGIN_NOTES
+Swipen ist gut, benutzen wir.
+
+Suche ist nicht Schwarz und Weiss.
+#+END_NOTES
 * 
 :PROPERTIES: 
 :reveal_background: img/cars10.png
@@ -278,11 +327,21 @@ the essence of active learning
 :reveal_background: img/cars13.png
 :reveal_background_size: 100%
 :END:
+#+BEGIN_NOTES
+- Swiping nutzen
+- Unsicherheit nutzen
+- AL nutzen
+#+END_NOTES
 * 
 :PROPERTIES: 
 :reveal_background: img/vegas.jpg
 :reveal_background_size: 100%
 :END:
+#+BEGIN_NOTES
+- Slot machines
+- Reihe von Einarmigen-Banditen -> multi-armed
+- Spiele bandits, ziehe an den Armen, und maximiere Gewinn
+#+END_NOTES
 ** Multi-Armed Bandits
 Problem statement
 #+ATTR_REVEAL: :frag (roll-in)
@@ -304,12 +363,12 @@ past performance + exploration bonus
 #+BEGIN_NOTES
 - Upper confident bound
 - "Optimism in the face of uncertainty"
+- "Optimismus im Angesicht der Unsicherheit"
 - Greedy
 - Not optimal, but bounded
 - Exploration vs Exploitation
 - Many variations of UCB
 #+END_NOTES
-
 ** UCB1
 #+ATTR_REVEAL: :frag roll-in
 Play each arm once
@@ -342,11 +401,11 @@ Then play arm that $$\Large \arg\max_i \; \bar\mu_i + \sqrt{\frac{2\ln n}{n_i}}$
   - arms: sports car, economy, ...
 
 #+BEGIN_NOTES
+Porsche und VW sind auspraegungeng des Features 'Brand'
+
 Wenn man swiped,
 zieht man einen Arm an jedem multi-armed Bandit.
 D.h. man zieht an drei Armen.
-
-Porsche und VW sind auspraegungeng des Features 'Brand'
 
 each bandit creates a *ranking* for the given feature
 #+END_NOTES
@@ -358,6 +417,10 @@ each bandit creates a *ranking* for the given feature
 #+END_NOTES
 [[./img/es_ranking.png]]
 [[./img/es.png]]
+* Practical Remarks
+#+BEGIN_NOTES
+Ende meiner Werbeveranstaltung fuer AL
+#+END_NOTES
 * Popularity Bias
 :PROPERTIES: 
 :reveal_background: img/bias.png
@@ -372,15 +435,17 @@ each bandit creates a *ranking* for the given feature
 - Sparse PCA to find set of sparse components that can optimally reconstruct the data
 - Then clustering
 #+END_NOTES
-* Practical Remarks
+* Implementation
 #+ATTR_REVEAL: :frag (roll-in)
-- Pythons all the way down ;D
+- Python
 - sklearn
 - Flask REST API
 - Elasticsearch
 * Conclusion
 #+ATTR_REVEAL: :frag roll-in
-Active Learning or: How I Learned to Stop Worrying and Love Small Data
+*Active Learning*
+
+Or: How I Learned to Stop Worrying and Love Small Data
 
 * Related Topics
 - Sequential Decision Making
@@ -389,16 +454,7 @@ Active Learning or: How I Learned to Stop Worrying and Love Small Data
 - Global Optimizaiton
 - Optimal solution exists: planning in *belief space*, but is infeasible
 - Tuning hyperparams with [[https://github.com/zygmuntz/hyperband][Hyperband]]
-* Thanks!
-*Questions?*
 
-/Stefan Otte/
-
-TODO url & Logo
-
-https://goo.gl/8JgirR
-
-[[./img/qr.png]]
 * References
 - [[http://burrsettles.com/pub/settles.activelearning.pdf][Active Learning Literature Survey]]
 - [[http://homes.dsi.unimi.it/~cesabian/Pubblicazioni/ml-02.pdf][Finite-time Analysis of the Multiarmed Bandit Problem - Auer et al]]
@@ -409,8 +465,6 @@ https://goo.gl/8JgirR
 
 /Stefan Otte/
 
-TODO url & barcode
-
-https://goo.gl/8JgirR
+https://goo.gl/tPrBVN
 
 [[./img/qr.png]]

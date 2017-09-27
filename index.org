@@ -5,12 +5,22 @@
 #+OPTIONS: toc:nil
 #+OPTIONS: num:nil
 #+OPTIONS: reveal_history:t
-* On Bandits and Swipes -- Gamification of Search
+* Gamification von Suche mit Bandits und Swipes
+
+oder: Wie man mit Small Data arbeitet
+
 /Stefan Otte/
 
+TODO url
 https://goo.gl/8JgirR
 
+TODO barcode
 [[./img/qr.png]]
+* 
+:PROPERTIES: 
+:reveal_background: img/dr_strangelove.jpg
+:reveal_background_size: 70%
+:END:
 * Active Learning or: How I Learned to Stop Worrying and Love Small Data
 #+BEGIN_NOTES
 - spiritual title
@@ -31,6 +41,47 @@ https://github.com/sotte
 :reveal_background: img/um.png
 :reveal_background_size: 400px
 :END:
+#+BEGIN_NOTES
+Big Data
+
+from idea to cable
+
+- Data Engineering
+- Ops
+- Data Science
+- Data Thinking - Beratungsspalte
+
+from idea to cable
+
+#+END_NOTES
+* Where are we going?
+#+BEGIN_NOTES
+- Talks bei "Data" Konferenzen sind etwas komisch
+- sehr diverses publikum
+  - Engineers, Big Data Zoo: Big Data Engineers, ML, Mathe und Physiker PhD,
+  - Data Scientist -> Daten Hausmeister
+  - Marketing, Sales, Manager und C-Level
+ 
+Dieser Talks ist auch komisch
+- High Level / Novice
+- Theory -> wichtig
+- Formel -> PhD, griechische Buchstaben
+- Beispiel fuer die Formel
+- Konkretes Fallbeispiel einer App
+
+Ziel:
+- active learning
+#+END_NOTES
+* The Task
+#+BEGIN_NOTES
+- Entwickle "diese App" fuer Porsche Austria
+- fun, engaging, gamified, personalized
+- Suchen von Autos genutzt wird
+- Geschmack des Users erlernt
+- Problem: keine Daten ueber Nutzer vorhanden -> AL
+
+Besseres Interface
+#+END_NOTES
 * 
 :PROPERTIES: 
 :reveal_background: img/cars.png
@@ -60,6 +111,15 @@ https://github.com/sotte
 [[./img/cinder.png]]
 * /"Nothing Is Quite So Practical as a Good Theory"/ 
 -- Kurt Lewin
+#+BEGIN_NOTES
+Fallbeispiel - koennte erzaehlen wir alles umgesetzt haben, lessons learned.
+
+Aber, hier ist hier mehr
+
+German-American Psychologist
+pioneers of social, organizational, and applied psychology
+Founder of social psychology
+#+END_NOTES
 * Active Learning
 ** 
 /"The key idea behind *active learning* is that a machine learning algorithm can achieve *greater accuracy* with *fewer training labels* if it is allowed to *choose the data* from which it learns./
@@ -88,7 +148,10 @@ https://github.com/sotte
 :reveal_background: img/burr_settles.jpg
 :reveal_background_trans: slide
 :END:
-
+#+BEGIN_NOTES
+ML dep von CMU?
+G8 demo
+#+END_NOTES
 ** 
 greater accuracy with fewer training labels
 
@@ -240,41 +303,57 @@ $$\max \sum_{t=1}^T y_t$$
 past performance + exploration bonus
 #+BEGIN_NOTES
 - Upper confident bound
+- "Optimism in the face of uncertainty"
 - Greedy
 - Not optimal, but bounded
-- "Optimism in the face of uncertainty"
 - Exploration vs Exploitation
 - Many variations of UCB
 #+END_NOTES
 
 ** UCB1
 #+ATTR_REVEAL: :frag roll-in
-Play each bandit once
+Play each arm once
 
 #+ATTR_REVEAL: :frag roll-in
-Then play bandit that $$\Large \arg\max_i \; \bar\mu_i + \sqrt{\frac{2\ln n}{n_i}}$$
+Then play arm that $$\Large \arg\max_i \; \bar\mu_i + \sqrt{\frac{2\ln n}{n_i}}$$
 #+ATTR_REVEAL: :frag roll-in
-  - $\bar\mu_i$: mean reward of bandit $i$
+  - $\bar\mu_i$: mean reward of arm $i$
   - $n$: total rounds played
-  - $n_i$: rounds bandit $i$ was played
+  - $n_i$: rounds arm $i$ was played
 
 * Demo
+* Where are we?
+#+BEGIN_NOTES
+- active learning
+- bandits
+- UCB family
+- UCB1 example
+
+- app with swiping
+- using bandits
+#+END_NOTES
 * One Bandit per Feature
 #+ATTR_REVEAL: :frag (roll-in)
 - brand bandit
+  - arms: Porsche, VW, ...
 - car body bandit
+  - arms: SUV, coupe, ...
 - segment bandit
+  - arms: sports car, economy, ...
 
 #+BEGIN_NOTES
-- brand: Porsche, VW, ...
-- car body: SUV, mini, copue, ...
-- segment: sports car, economy car, mittelklasse, ...
+Wenn man swiped,
+zieht man einen Arm an jedem multi-armed Bandit.
+D.h. man zieht an drei Armen.
+
+Porsche und VW sind auspraegungeng des Features 'Brand'
 
 each bandit creates a *ranking* for the given feature
 #+END_NOTES
+
 * Ranking with Elasticsearch
 #+BEGIN_NOTES
-- made for creating rankings
+- ES made for creating rankings
 - output of bandits is input of elasticsearch query
 #+END_NOTES
 [[./img/es_ranking.png]]
@@ -305,15 +384,17 @@ Active Learning or: How I Learned to Stop Worrying and Love Small Data
 
 * Related Topics
 - Sequential Decision Making
-- Global Optimizaiton
 - Experimental Design
 - (Bayesian) Reinforcement Learning
+- Global Optimizaiton
 - Optimal solution exists: planning in *belief space*, but is infeasible
 - Tuning hyperparams with [[https://github.com/zygmuntz/hyperband][Hyperband]]
 * Thanks!
 *Questions?*
 
 /Stefan Otte/
+
+TODO url & Logo
 
 https://goo.gl/8JgirR
 
@@ -327,6 +408,8 @@ https://goo.gl/8JgirR
 *Questions?*
 
 /Stefan Otte/
+
+TODO url & barcode
 
 https://goo.gl/8JgirR
 

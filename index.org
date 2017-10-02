@@ -421,12 +421,12 @@ each bandit creates a *ranking* for the given feature
 #+BEGIN_NOTES
 Ende meiner Werbeveranstaltung fuer AL
 #+END_NOTES
-* Popularity Bias
+** Popularity Bias
 :PROPERTIES: 
 :reveal_background: img/bias.png
 :reveal_background_size: 100%
 :END:
-* 
+** 
 :PROPERTIES: 
 :reveal_background: img/segmentation.png
 :reveal_background_size: 120%
@@ -435,14 +435,13 @@ Ende meiner Werbeveranstaltung fuer AL
 - Sparse PCA to find set of sparse components that can optimally reconstruct the data
 - Then clustering
 #+END_NOTES
-* Implementation
+** Implementation
 #+ATTR_REVEAL: :frag (roll-in)
 - Python
 - sklearn
 - Flask REST API
 - Elasticsearch
 * Conclusion
-#+ATTR_REVEAL: :frag roll-in
 *Active Learning*
 
 Or: How I Learned to Stop Worrying and Love Small Data
